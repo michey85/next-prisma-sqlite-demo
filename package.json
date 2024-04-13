@@ -9,8 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "prisma-seed": "tsx prisma/seed.ts",
-    "prisma-migrate:dev": "prisma migrate deploy",
-    "prisma-migrate:deploy": "prisma migrate deploy",
+    "prisma-migrate": "prisma migrate deploy",
     "prisma-generate": "prisma generate"
   },
   "dependencies": {
