@@ -5,15 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prepare": "npm run prisma-generate && touch ./prisma/prod.db && npm run prisma-migrate && npm run build",
+    "prepare": "touch ./prisma/prod.db && npm run prisma-migrate && npm run build",
     "start": "next start",
     "lint": "next lint",
     "prisma-seed": "tsx prisma/seed.ts",
-    "prisma-migrate": "prisma migrate deploy",
+    "prisma-migrate:dev": "prisma migrate deploy",
+    "prisma-migrate:deploy": "prisma migrate deploy",
     "prisma-generate": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.11.0",
+    "@prisma/client": "^5.12.1",
     "@types/node": "20.1.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -26,7 +27,7 @@
     "typescript": "^5.4.4"
   },
   "devDependencies": {
-    "prisma": "^5.11.0",
+    "prisma": "^5.12.1",
     "tsx": "^4.7.1"
   },
   "volta": {
