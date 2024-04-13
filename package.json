@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prepare": "touch ./prisma/prod.db && npm run prisma-migrate && npm run build",
+    "prepare": "touch ./prisma/prod.db && npm run prisma-generate && npm run prisma-migrate && npm run build",
     "start": "next start",
     "lint": "next lint",
     "prisma-seed": "tsx prisma/seed.ts",
