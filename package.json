@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prepare": "touch ./prisma/prod.db && npm run prisma-generate && npm run prisma-migrate && npm run build",
     "start": "next start",
     "lint": "next lint",
-    "prisma-seed": "tsx prisma/seed.ts",
-    "prisma-migrate": "prisma migrate deploy",
-    "prisma-generate": "prisma generate"
+    "prisma-seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.12.1",
