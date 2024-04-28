@@ -1,7 +1,7 @@
+import { removePost, removeUser } from "@/app/blog/actions";
 import { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, getPostById, getUserById } from "@/services/posts";
-import { removePost } from "../actions";
 
 type Props = {
   params: {
@@ -13,38 +13,37 @@ export async function generateStaticParams() {
   const posts: any[] = await getAllPosts();
 
   return posts.map((post) => ({
-    slug: post.id.toString()
+    slug: post.id.toString(),
   }));
 }
 
 export async function generateMetadata({
-                                         params: { id }
-                                       }: Props): Promise<Metadata> {
-  const post = await getPostById(Number(id));
+  params: { id },
+}: Props): Promise<Metadata> {
+  const post = await getUserById(Number(id));
 
   return {
-    title: post?.title ?? ""
+    title: post?.name ?? "",
   };
 }
 
 export default async function Post({ params: { id } }: Props) {
-  const post = await getPostById(Number(id));
-  const user = await getUserById(Number(post?.authorId));
+  const post = await getUserById(Number(id));
+
   if (!post) {
     return <h1>Post not found</h1>;
   }
 
   return (
     <>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-      <p>{user?.email}</p>
+      <h1>{post.email}</h1>
+      <p>{post.name}</p>
 
-      <form action={removePost.bind(null, Number(id))}>
+      <form action={removeUser.bind(null, Number(id))}>
         <input type="submit" value="delete post" />
       </form>
 
-      <Link href={`/blog/${id}/edit`}>Edit</Link>
+      <Link href={`/users/${id}/edit`}>Edit</Link>
     </>
   );
 }

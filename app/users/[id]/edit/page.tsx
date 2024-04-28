@@ -1,5 +1,5 @@
+import { updatePost } from "@/app/blog/actions";
 import { getPostById } from "@/services/posts";
-import { updatePost } from "../../actions";
 
 type Props = {
   params: {
