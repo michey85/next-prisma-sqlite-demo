@@ -8,18 +8,6 @@ export function getPostById(id: number) {
   });
 }
 
-export function getUserById(id: number) {
-  return prisma.user.findUnique({
-    where: {
-      id,
-    },
-  });
-}
-
 export function getAllPosts() {
   return prisma.post.findMany();
-}
-
-export function getAllUsers() {
-  return prisma.user.findMany();
 }

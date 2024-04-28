@@ -1,6 +1,7 @@
+import { getUserById } from "@/services/users";
 import { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts, getPostById, getUserById } from "@/services/posts";
+import { getAllPosts, getPostById } from "@/services/posts";
 import { removePost } from "../actions";
 
 type Props = {

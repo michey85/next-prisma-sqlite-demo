@@ -1,9 +1,7 @@
 import { createPost } from "@/app/blog/actions";
-import { getAllUsers } from "@/services/posts";
+import { User } from "@prisma/client";
 
-export default async function NewPostForm() {
-  const users = await getAllUsers();
-
+export default function NewPostForm({ users }: { users: User[] }) {
   return (
     <form className="form" action={createPost}>
       <input type="text" placeholder="title" required name="title" />

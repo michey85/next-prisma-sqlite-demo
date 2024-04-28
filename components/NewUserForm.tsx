@@ -1,4 +1,4 @@
-import { createUser } from "@/app/blog/actions";
+import { createUser } from "@/app/users/actions";
 
 export default function NewUserForm() {
   return (

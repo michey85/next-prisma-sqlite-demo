@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getAllUsers } from "@/services/posts";
+import { getAllUsers } from "@/services/users";
 
 export const metadata: Metadata = {
   title: "Blog | Next App",

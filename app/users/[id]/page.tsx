@@ -1,7 +1,8 @@
-import { removePost, removeUser } from "@/app/blog/actions";
+import { removeUser } from "@/app/users/actions";
+import { getAllPosts } from "@/services/posts";
+import { getUserById } from "@/services/users";
 import { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts, getPostById, getUserById } from "@/services/posts";
 
 type Props = {
   params: {
@@ -13,17 +14,17 @@ export async function generateStaticParams() {
   const posts: any[] = await getAllPosts();
 
   return posts.map((post) => ({
-    slug: post.id.toString(),
+    slug: post.id.toString()
   }));
 }
 
 export async function generateMetadata({
-  params: { id },
-}: Props): Promise<Metadata> {
+                                         params: { id }
+                                       }: Props): Promise<Metadata> {
   const post = await getUserById(Number(id));
 
   return {
-    title: post?.name ?? "",
+    title: post?.name ?? ""
   };
 }
 
