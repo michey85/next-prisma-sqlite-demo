@@ -1,11 +1,17 @@
 import { prisma } from "@/lib/prisma";
 
 export function getPostById(id: number) {
-  return prisma.post.findUnique({
-    where: {
-      id,
-    },
-  });
+  try {
+    return prisma.post.findUnique({
+      where: {
+        id,
+      },
+    });
+  }
+  catch (e) {
+    console.error(JSON.stringify(e));
+  }
+
 }
 
 export function getAllPosts() {
