@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-        port: '',
-        pathname: '/a/**',
-      },
-    ]
-  }
-}
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["mishanep.store", "localhost:3000"],
+    },
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -14,6 +14,7 @@ export async function createPost(data: FormData) {
     },
   });
 
+  revalidatePath("/blog");
   redirect(`/blog/${post.id}`);
 }
 
@@ -31,6 +32,7 @@ export async function updatePost(data: FormData) {
   });
 
   revalidatePath(`/blog/${post.id}`);
+  revalidatePath("/blog");
   redirect(`/blog/${post.id}`);
 }
 
